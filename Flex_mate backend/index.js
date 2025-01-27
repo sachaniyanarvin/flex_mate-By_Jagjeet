@@ -82,6 +82,19 @@ app.post("/resume", async (req,res) => {
   }
 });
 
+app.post("/feedback", async (req,res) => {
+  try{
+    console.log("Request Body",req.body);
+    console.log("Inserting into collection: feedback");
+
+    const result = await db.collection("feedback").insertOne(req.body);
+    res.json(result);
+  } catch(error){
+    console.error("Error inserting document:",error);
+    res.status(500).json({error:"Internal server error"});
+  }
+})
+
 
     
     app.listen(port, () => console.log(`Server running on http://localhost:${port}`));
