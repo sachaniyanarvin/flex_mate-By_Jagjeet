@@ -5,6 +5,7 @@ const app = express();
 const port = 3000;
 const uri = "mongodb://localhost:27017";
 const client = new MongoClient(uri);
+const { ObjectId } = require("mongodb");
 let db;
 
 app.use(express.json());
@@ -36,7 +37,7 @@ app.use(express.json());
       }
     });
 
-    const { ObjectId } = require("mongodb");
+    
 
 app.patch("/projects/:id/like", async (req, res) => {
   try {
@@ -54,6 +55,20 @@ app.patch("/projects/:id/like", async (req, res) => {
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
+app.post("/portfolio", async (req, res) => {
+  try {
+    console.log("Request Body:", req.body); // Log the incoming data
+    console.log("Inserting into Collection: portfolio"); // Confirm the target collection
+
+    const result = await db.collection("portfolio").insertOne(req.body);
+    res.json(result);
+  } catch (error) {
+    console.error("Error inserting document:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
 
     
     app.listen(port, () => console.log(`Server running on http://localhost:${port}`));
