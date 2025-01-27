@@ -58,14 +58,27 @@ app.patch("/projects/:id/like", async (req, res) => {
 
 app.post("/portfolio", async (req, res) => {
   try {
-    console.log("Request Body:", req.body); // Log the incoming data
-    console.log("Inserting into Collection: portfolio"); // Confirm the target collection
+    console.log("Request Body:", req.body); 
+    console.log("Inserting into Collection: portfolio"); 
 
     const result = await db.collection("portfolio").insertOne(req.body);
     res.json(result);
   } catch (error) {
     console.error("Error inserting document:", error);
     res.status(500).json({ error: "Internal Server Error" });
+  }
+});
+
+app.post("/resume", async (req,res) => {
+  try{
+    console.log("Request Body", req.body);
+    console.log("Inserting into Collection: resume");
+
+    const result = await db.collection("resume").insertOne(req.body);
+    res.json(result);
+  } catch(error){
+    console.error("Error insreting document:",error);
+    res.status(500).json({error:"Internal server error"});
   }
 });
 
