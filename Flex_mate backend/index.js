@@ -3,7 +3,7 @@ const { MongoClient } = require("mongodb");
 
 const app = express();
 const port = 3000;
-const uri = "mongodb://localhost:27017";
+const uri = "mongodb+srv://jagjeetdangarcg:jag1917jeet@cluster0.nq7xw.mongodb.net/";
 const client = new MongoClient(uri);
 const { ObjectId } = require("mongodb");
 let db;
@@ -13,7 +13,7 @@ app.use(express.json());
 (async function () {
   try {
     await client.connect();
-    db = client.db("landingpaage");
+    db = client.db("test");
 
     app.post("/projects", async (req, res) => {
       try {
