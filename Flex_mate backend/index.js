@@ -93,10 +93,7 @@ app.post("/feedback", async (req,res) => {
     console.error("Error inserting document:",error);
     res.status(500).json({error:"Internal server error"});
   }
-})
-
-
-    
+})    
     app.listen(port, () => console.log(`Server running on http://localhost:${port}`));
   } catch (err) {
     console.error(err);
