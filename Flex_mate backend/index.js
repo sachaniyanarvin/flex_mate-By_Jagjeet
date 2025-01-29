@@ -24,6 +24,18 @@ app.use(express.json());
         res.status(500).json({ error: "Internal Server Error" });
       }
     });
+
+    app.get("/projects", async (req, res) => {
+      try {
+        const userId = req.query.userId; 
+        const filter = userId ? { userId: userId } : {}; 
+        const users = await db.collection("projects").find(filter).toArray(); 
+        res.json(users); 
+      } catch (error) {
+        console.error(error); 
+        res.status(500).json({ error: "An error occurred while fetching likes." });
+      }
+    });
     
     app.get("/likes", async (req, res) => {
       try {
@@ -36,8 +48,6 @@ app.use(express.json());
         res.status(500).json({ error: "An error occurred while fetching likes." });
       }
     });
-
-    
 
 app.patch("/projects/:id/like", async (req, res) => {
   try {
@@ -69,6 +79,18 @@ app.post("/portfolio", async (req, res) => {
   }
 });
 
+app.get("/portfolio", async (req, res) => {
+  try {
+    const userId = req.query.userId; 
+    const filter = userId ? { userId: userId } : {}; 
+    const users = await db.collection("portfolio").find(filter).toArray(); 
+    res.json(users); 
+  } catch (error) {
+    console.error(error); 
+    res.status(500).json({ error: "An error occurred while fetching likes." });
+  }
+});
+
 app.post("/resume", async (req,res) => {
   try{
     console.log("Request Body", req.body);
@@ -82,6 +104,19 @@ app.post("/resume", async (req,res) => {
   }
 });
 
+app.get("/resume", async (req, res) => {
+  try {
+    const userId = req.query.userId; 
+    const filter = userId ? { userId: userId } : {}; 
+    const users = await db.collection("resume").find(filter).toArray(); 
+    res.json(users); 
+  } catch (error) {
+    console.error(error); 
+    res.status(500).json({ error: "An error occurred while fetching likes." });
+  }
+});
+
+
 app.post("/feedback", async (req,res) => {
   try{
     console.log("Request Body",req.body);
@@ -93,7 +128,20 @@ app.post("/feedback", async (req,res) => {
     console.error("Error inserting document:",error);
     res.status(500).json({error:"Internal server error"});
   }
-})    
+});
+
+app.get("/feedback", async (req, res) => {
+  try {
+    const userId = req.query.userId; 
+    const filter = userId ? { userId: userId } : {}; 
+    const users = await db.collection("feedback").find(filter).toArray(); 
+    res.json(users); 
+  } catch (error) {
+    console.error(error); 
+    res.status(500).json({ error: "An error occurred while fetching likes." });
+  }
+});
+
     app.listen(port, () => console.log(`Server running on http://localhost:${port}`));
   } catch (err) {
     console.error(err);
