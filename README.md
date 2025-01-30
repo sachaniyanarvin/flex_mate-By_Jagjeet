@@ -7,7 +7,7 @@ https://www.figma.com/design/zL6KLAX12v82eye92v7HNM/CodingGita-Project?node-id=5
 https://documenter.getpostman.com/view/39216566/2sAYQgh8Du
 
 ### Deployed Link:-
-https://flex-mate-9.onrender.com
+https://flex-mate-10.onrender.com
 
 to get the data
 
