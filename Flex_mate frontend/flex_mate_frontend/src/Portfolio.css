@@ -1,0 +1,91 @@
+
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Header Section */
+.header {
+    background: linear-gradient(135deg, #3b82f6, #1e40af);
+    color: white;
+    text-align: center;
+    padding: 80px 20px;
+    border-radius: 0 0 50px 50px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.header p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid white;
+    margin-top: 20px;
+}
+
+/* Skills Section */
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin: 50px auto;
+    text-align: center;
+    justify-content: center;
+}
+
+.skill-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.skill-card h3 {
+    color: #1e40af;
+    margin-bottom: 10px;
+}
+
+/* Project Section */
+.project {
+    text-align: center;
+    margin: 50px auto;
+    padding: 40px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.project img {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+.project a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: white;
+    background: #1e40af;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .skills {
+        flex-direction: column;
+        align-items: center;
+    }
+}
