@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from "react";
-import "./Hirefreelancers.css"; 
+import "./Hirefreelancers.css";
+import stars from './assets/stars.png';
+import group from './assets/group.png';
+import lock from './assets/lock.png';
+import why from './assets/hirelandingwhy1.png'
 
 const Feedback = () => {
   const [feedbackData, setFeedbackData] = useState([]);
@@ -55,8 +59,35 @@ const Feedback = () => {
         </div>
         <div id="line"></div>
         <div className="below-line">
-        Why hire on FlexMate?
+          Why hire on FlexMate?
         </div>
+        <div className="below-below-line">
+          Hiring freelance talent on FlexMate is seamless and secure.
+        </div>
+        <div className="image-conmtainer">
+          <img src={stars} alt="" className="locks" />
+          <img src={group} alt="" className="locks" />
+          <img src={lock} alt="" className="locks" />
+        </div>
+        <div className="text-container">
+          <div className="text-container1">
+            <h3 className="upper1">Access to the world’s best creators</h3>
+            <h3 className="lower">Get matched from a pool of over 2 million qualified freelancers</h3>
+          </div>
+          <div className="text-container2">
+            <h3 className="upper">All the right tools in one place</h3>
+            <h3 className="lower">Start conversations, share files, and join video calls with candidates</h3>
+          </div>
+          <div className="text-container3">
+            <h3 className="upper">Secure payments</h3>
+            <h3 className="lower">Pay seamlessly and securely with a debit or credit card on Behance</h3>
+          </div>
+        </div>
+        <img src={why} alt="" className="why"/>
+        <div className="browse-cat1">
+          Browse Categories
+        </div>
+        <div id="line"></div>
       </div>
     </div>
   );
