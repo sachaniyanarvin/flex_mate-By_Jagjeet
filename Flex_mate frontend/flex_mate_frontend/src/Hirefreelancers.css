@@ -1,47 +1,108 @@
-/* Feedback.css */
+.title{
+  display: flex;
+  justify-content: center;
+  font-family: 'ABeeZee';
+  font-size: 60px;
+  text-align: center;
+  margin-top: 58px;
+}
 
-/* Container for all feedback cards */
-.feedback-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    background-color: #f9f9f9;
-  }
-  
-  /* Individual feedback card */
-  .feedback-card {
-    background: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .feedback-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  }
-  
-  /* Profile picture */
-  .feedback-pfp {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 15px;
-  }
-  
-  /* Account name */
-  .feedback-accountname {
-    font-size: 1.5rem;
-    color: #333;
-    margin-bottom: 10px;
-  }
-  
-  /* Feedback text */
-  .feedback-text {
-    font-size: 1rem;
-    color: #666;
-    line-height: 1.5;
-  }
+.belowtitle{
+  display: flex;
+  justify-content: center;
+  margin-top: -20px;
+  text-align: center;
+  font-family: 'ABeeZee';
+}
+ 
+.browse-cat{
+  border: 1px solid #4992e4;
+  background-color: #4992e4;
+  color: white;
+  text-align: center;
+  height: 45px;
+  width: 225px;
+  font-size: 20px;
+  font-family: 'ABeeZee';
+  border-radius: 16px;
+  display: flex;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.browse-cat:hover{
+  background-color: white;
+  color: #4992e4;
+  cursor: pointer;
+  border: 2px solid #4992e4;
+}
+
+.categories {
+  margin-top: 41px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 30px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.image-container {
+  position: relative;
+  width: 300px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  margin: auto; 
+}
+
+.andar {
+  width: 300px;
+  object-fit: cover;
+  display: block;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.image-container:hover .andar {
+  transform: scale(1.1);
+}
+
+.text-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 5px;
+  text-align: center;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+}
+
+.image-container:hover .text-overlay {
+  opacity: 1;
+}
+
+#line{
+  margin-top: 30px;
+  height: 1px;
+  width: 1480px;
+  background-color: #D9D9D9;
+}
+
+.below-line{
+  display: flex;
+  justify-content: left;
+  font-family: 'ABeeZee';
+  font-size: 55px;
+  text-align: center;
+  margin-top: 15px;
+}
