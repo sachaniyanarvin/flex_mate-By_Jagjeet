@@ -4,6 +4,13 @@ import stars from './assets/stars.png';
 import group from './assets/group.png';
 import lock from './assets/lock.png';
 import why from './assets/hirelandingwhy1.png'
+import sikh from './assets/sikh.png';
+import file from './assets/file.png';
+import books from './assets/books.png';
+import jnr from './assets/jnr.png';
+import location from './assets/location.png';
+import dot from './assets/dot.png';
+import Vector1 from './assets/Vector1.png';
 
 const Feedback = () => {
   const [feedbackData, setFeedbackData] = useState([]);
@@ -83,11 +90,98 @@ const Feedback = () => {
             <h3 className="lower">Pay seamlessly and securely with a debit or credit card on Behance</h3>
           </div>
         </div>
-        <img src={why} alt="" className="why"/>
+        <img src={why} alt="" className="why" />
         <div className="browse-cat1">
           Browse Categories
         </div>
         <div id="line"></div>
+        <div className="suggestions">
+          <div className="suggestion-1">
+            <img className="sikh" src={sikh} alt="" />
+            <img src={file} alt="" className="file" />
+            <img src={books} alt="" className="books" />
+            <img src={jnr} className="jnr" alt="" />
+            <h4 className="suggestion-text">Jose Manguel Vanga</h4>
+            <img src={location} alt="" className="location" />
+            <h4 className="suggestion-text-1">Spain</h4>
+            <img src={dot} alt="" className="dot" />
+            <h4 className="suggestion-text-2">Responds Quickly</h4>
+            <div className="butt-1">
+              <img src={Vector1} alt="" className="vector" />
+              <h4 className="Featured">Featured</h4>
+            </div>
+            <div className="butt-2">
+              <h4 className="Featured-1">8 Projects completed</h4>
+            </div>
+            <div className="hire">
+              <h4 className="diddy">Hire Jose Wanga</h4>
+            </div>
+          </div>
+          <div className="suggestion-2">
+            <img className="sikh" src={sikh} alt="" />
+            <img src={file} alt="" className="file" />
+            <img src={books} alt="" className="books" />
+            <img src={jnr} className="jnr" alt="" />
+            <h4 className="suggestion-text">Jose Manguel Vanga</h4>
+            <img src={location} alt="" className="location" />
+            <h4 className="suggestion-text-1">Spain</h4>
+            <img src={dot} alt="" className="dot" />
+            <h4 className="suggestion-text-2">Responds Quickly</h4>
+            <div className="butt-1">
+              <img src={Vector1} alt="" className="vector" />
+              <h4 className="Featured">Featured</h4>
+            </div>
+            <div className="butt-2">
+              <h4 className="Featured-1">8 Projects completed</h4>
+            </div>
+            <div className="hire">
+              <h4 className="diddy">Hire Jose Wanga</h4>
+            </div>
+          </div>
+          <div className="suggestion-3">
+            <img className="sikh" src={sikh} alt="" />
+            <img src={file} alt="" className="file" />
+            <img src={books} alt="" className="books" />
+            <img src={jnr} className="jnr" alt="" />
+            <h4 className="suggestion-text">Jose Manguel Vanga</h4>
+            <img src={location} alt="" className="location" />
+            <h4 className="suggestion-text-1">Spain</h4>
+            <img src={dot} alt="" className="dot" />
+            <h4 className="suggestion-text-2">Responds Quickly</h4>
+            <div className="butt-1">
+              <img src={Vector1} alt="" className="vector" />
+              <h4 className="Featured">Featured</h4>
+            </div>
+            <div className="butt-2">
+              <h4 className="Featured-1">8 Projects completed</h4>
+            </div>
+            <div className="hire">
+              <h4 className="diddy">Hire Jose Wanga</h4>
+            </div>
+          </div>
+          <div className="suggestion-4">
+            <img className="sikh" src={sikh} alt="" />
+            <img src={file} alt="" className="file" />
+            <img src={books} alt="" className="books" />
+            <img src={jnr} className="jnr" alt="" />
+            <h4 className="suggestion-text">Jose Manguel Vanga</h4>
+            <img src={location} alt="" className="location" />
+            <h4 className="suggestion-text-1">Spain</h4>
+            <img src={dot} alt="" className="dot" />
+            <h4 className="suggestion-text-2">Responds Quickly</h4>
+            <div className="butt-1">
+              <img src={Vector1} alt="" className="vector" />
+              <h4 className="Featured">Featured</h4>
+            </div>
+            <div className="butt-2">
+              <h4 className="Featured-1">8 Projects completed</h4>
+            </div>
+            <div className="hire">
+              <h4 className="diddy">Hire Jose Wanga</h4>
+            </div>
+          </div>
+        </div>
+        <div className="circle1"></div>
       </div>
     </div>
   );

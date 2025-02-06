@@ -167,3 +167,129 @@
   cursor: pointer;
   border: 2px solid #4992e4;
 }
+
+.suggestions{
+  display: grid;
+  grid-template-columns: repeat(4,356px);
+  justify-content: center;
+  margin-top: 20px;
+}
+.suggestion-1,.suggestion-2,.suggestion-3,.suggestion-4{
+  height: 313px;
+  width: 342px;
+  border: 1px solid #808080;
+  border-radius: 5px;
+  display: flex;
+}
+
+.sikh{
+  height: 124px;
+  width: 110px;
+}
+
+.file,.books{
+  height: 124px;
+  width: 110px;
+  margin-left: 6px;
+}
+
+.jnr{
+  height: 80px;
+  width: 80px;
+  margin-left: 130px;
+  margin-top: 80px;
+  position: absolute;
+}
+
+.suggestion-text{
+  margin-top: 170px;
+  margin-left: -265px;
+  font-size: 20px;
+  font-family: 'ABeezee';
+}
+
+.location{
+  height: 24px;
+  width: 24px;
+  margin-top: 205px;
+  margin-left: -220px;
+}
+
+.suggestion-text-1{
+  margin-top: 209px;
+  margin-left: 5px;
+  font-size: 16px;
+  font-family: 'ABeezee';
+}
+
+.dot{
+  height: 7px;
+  width: 7px;
+  margin-left: 20px;
+  margin-top: 215px;
+}
+
+.suggestion-text-2{
+  margin-top: 209px;
+  margin-left: 10px;
+  font-size: 16px;
+  font-family: 'ABeezee';
+}
+
+.vector{
+  margin-left: 5px;
+}
+
+.butt-1{
+  height: 26px;
+  width: 95px;
+  margin-top: 240px;
+  margin-left: -240px;
+  border-radius: 3px;
+  background-color: #4992e4;
+}
+
+.butt-2{
+  height: 26px;
+  width: 132px;
+  margin-top: 240px;
+  margin-left:10px;
+  border-radius: 3px;
+  background-color: #4992e4;
+}
+
+.Featured{
+  font-family: 'ABeezee';
+  margin-top: -17px;
+  margin-left: 25px;
+  color: white;
+  font-size: 12px;
+}
+
+.Featured-1{
+  font-family: 'ABeezee';
+  font-size: 12px;
+  margin-top: 6px;
+  margin-left: 5px;
+  color: white;
+}
+
+.hire{
+  width: 233px;
+  height: 25px;
+  border: 1px solid black;
+  border-radius: 4px;
+  margin-top: 280px;
+  margin-left: -235px;
+}
+
+.diddy{
+  font-size: 14px;
+  font-family: 'ABeezee';
+  margin-top: 4px;
+  justify-self: center;
+}
+
+.hire:hover{
+  background-color: #d8d8d8;
+}
