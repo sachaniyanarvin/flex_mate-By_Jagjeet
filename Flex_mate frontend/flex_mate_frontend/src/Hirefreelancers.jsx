@@ -87,7 +87,7 @@ const Feedback = () => {
           </div>
           <div className="text-container3">
             <h3 className="upper">Secure payments</h3>
-            <h3 className="lower">Pay seamlessly and securely with a debit or credit card on Behance</h3>
+            <h3 className="lower">Pay seamlessly and securely with a debit or credit card on FlexMate</h3>
           </div>
         </div>
         <img src={why} alt="" className="why" />
@@ -95,7 +95,9 @@ const Feedback = () => {
           Browse Categories
         </div>
         <div id="line"></div>
-        <div className="suggestions">
+        <h4 className="first32">Our Recommended Freelancers </h4>
+        <h4 className="second55">Hire top freelancers hand-selected <br /> by the FlexMate team.</h4>
+         <div className="suggestions">
           <div className="suggestion-1">
             <img className="sikh" src={sikh} alt="" />
             <img src={file} alt="" className="file" />
@@ -180,8 +182,9 @@ const Feedback = () => {
               <h4 className="diddy">Hire Jose Wanga</h4>
             </div>
           </div>
-        </div>
+        </div> 
         <div className="circle1"></div>
+        <div id="line"></div>
       </div>
     </div>
   );

@@ -172,7 +172,7 @@
   display: grid;
   grid-template-columns: repeat(4,356px);
   justify-content: center;
-  margin-top: 20px;
+  margin-top: -40px;
 }
 .suggestion-1,.suggestion-2,.suggestion-3,.suggestion-4{
   height: 313px;
@@ -260,7 +260,7 @@
 
 .Featured{
   font-family: 'ABeezee';
-  margin-top: -17px;
+  margin-top: -16px;
   margin-left: 25px;
   color: white;
   font-size: 12px;
@@ -292,4 +292,19 @@
 
 .hire:hover{
   background-color: #d8d8d8;
+}
+
+.first32{
+  font-family: 'ABeezee';
+  font-size: 32px;
+  color: #4992e4;
+  margin-top: 24px;
+  margin-left: 24px;
+}
+
+.second55{
+  font-family: 'ABeezee';
+  font-size: 55px;
+  margin-top: -35px;
+  margin-left: 24px;
 }
