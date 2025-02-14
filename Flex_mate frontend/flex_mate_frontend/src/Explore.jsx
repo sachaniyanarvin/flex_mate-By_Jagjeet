@@ -4,6 +4,7 @@ import like from './assets/like.png'
 import heart from './assets/heart.png'
 import following from './assets/following.png'
 import { NavLink } from "react-router-dom";
+import eye from "./assets/eye.png"
 
 const App = () => {
   const [projects, setProjects] = useState([]);
@@ -63,8 +64,10 @@ const App = () => {
               <div key={project._id} className="project-card">
                 <img src={project.projectLink} alt="Project" className="project-img" />
                 <img src={like} alt="" className="like" />
+                <img src={eye} alt="" className="eye"/>
                 <p className="owner"> {project.projectOwner}</p>
                 <p className="likes">{projectLikes}</p>
+                <p className="likes1">{projectLikes}</p>
               </div>
             );
           })
