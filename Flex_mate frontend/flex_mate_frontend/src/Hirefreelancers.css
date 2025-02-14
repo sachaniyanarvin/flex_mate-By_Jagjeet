@@ -308,3 +308,42 @@
   margin-top: -35px;
   margin-left: 24px;
 }
+
+.feedbacks{
+  display: grid;
+  grid-template-columns: repeat(4,356px);
+  justify-content: center;
+  margin-top: -60px;
+}
+
+#feedback{
+  height: 313px;
+  width: 342px;
+  border: 1px solid #808080;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.hardagya{
+  font-family: 'ABeezee';
+  width: 286px;
+  height: 120px;
+  font-size: 20px;
+  margin-left: 30px;
+  color: #383838;
+}
+
+.pfp{
+  height: 50px;
+  width: 50px;
+  border-radius: 200px;
+  margin-left: 30px;
+  margin-top: 50px;
+}
+
+.mayur{
+  font-family: 'ABeezee';
+  font-size: 24px;
+  margin-left: 100px;
+  margin-top: -44px;
+}

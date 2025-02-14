@@ -97,7 +97,7 @@ const Feedback = () => {
         <div id="line"></div>
         <h4 className="first32">Our Recommended Freelancers </h4>
         <h4 className="second55">Hire top freelancers hand-selected <br /> by the FlexMate team.</h4>
-         <div className="suggestions">
+        <div className="suggestions">
           <div className="suggestion-1">
             <img className="sikh" src={sikh} alt="" />
             <img src={file} alt="" className="file" />
@@ -182,9 +182,20 @@ const Feedback = () => {
               <h4 className="diddy">Hire Jose Wanga</h4>
             </div>
           </div>
-        </div> 
+        </div>
         <div className="circle1"></div>
         <div id="line"></div>
+        <h4 className="first32">Success Stories</h4>
+        <h4 className="second55">See what clients are saying.</h4>
+        <div className="feedbacks">
+          {feedbackData.map((item, index) => (
+            <div id="feedback" key={item._id} className={`feedback-${index + 1}`}>
+              <h5 className="hardagya">{item.feedback}</h5>
+              <img src={item.pfp} alt="" className="pfp" />
+              <h5 className="mayur">{item.accountname}</h5>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
