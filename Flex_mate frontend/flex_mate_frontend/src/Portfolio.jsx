@@ -1,33 +1,41 @@
 import { useEffect, useState } from "react";
 import './portfolio.css';
-import jagjeet from './assets/jagjeet.png';
 import customers from './assets/customers.png';
 
 export default function Portfolio() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/portfolio")
       .then((response) => response.json())
-      .then((result) => setData(result[0]))
+      .then((result) => setData(result))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
-  if (!data) return <p>Loading...</p>;
+  if (!data.length) return <p>Loading...</p>;
 
   return (
-    <div className="pfp-section">
-      <img src={jagjeet} className="jagjeet" alt="" />
-      <div className="info-box-1">👋 Hey, i'm jagjeet</div>
-      <div className="info-box-2">UI/UX Designer shaping user <br /> experiences.</div>
-      <div className="jakarta">The go-to expert<br />for intuitive<br />designs.</div>
-      <div className="below-jakarta">Whenever I design, I aim to create experiences that engage. <br /> There is no better way to connect with users!</div>
-      <div className="design">Need a Design</div>
-      <div className="chat">Say hi</div>
-      <img src={customers} alt="" className="customers" />
-      <h2 className="count-1">750+</h2>
-      <h3 className="count-2">Happy Customers</h3>
+    <div className="portfolio-container">
+      {data.map((user) => (
+        <div className="pfp-section" key={user._id}>
+          <img src={user.YourimageLink} className="jagjeet" alt="Profile" />
+          <div className="info-box-1">{user["1stNote"]}</div>
+          <div className="info-box-2">{user["2ndNote"]}</div>
+          <div className="jakarta">{user.Header}</div>
+          <div className="below-jakarta">{user.WorkDescription}</div>
+          <div className="design">Need a Design</div>
+          <div className="chat">Say hi</div>
+          <img src={customers} alt="Customers" className="customers" />
+          <h2 className="count-1">750+</h2>
+          <h3 className="count-2">Happy Customers</h3>
+        </div>
+      ))}
     </div>
+  );
+}
+
+
+
     // <div className="portfolio-container">
     //   <header className="hero-section">
     //     <h1>{data.Header}</h1>
@@ -55,5 +63,3 @@ export default function Portfolio() {
     //     </a>
     //   </section>
     // </div>
-  );
-}

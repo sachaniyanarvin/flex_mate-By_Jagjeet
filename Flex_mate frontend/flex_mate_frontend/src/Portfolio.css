@@ -128,7 +128,6 @@
     padding-left: 5px;
     padding-right: 7px;
     padding-top: 7px;
-    padding-bottom: 10px;
     font-size: 15px;
 }
 
@@ -139,14 +138,16 @@
     margin-top: -450px;
     font-weight: 600;
     margin-left: 160px;
+    width: 600px;
 }
-
+ 
 .below-jakarta{
     color: #C7D5D3;
     font-family: 'outfit';
     margin-left: 160px;
     font-size: 18px;
     margin-top: 10px;
+    width: 500px;
 }
 
 .design{
