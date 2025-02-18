@@ -88,3 +88,9 @@
     font-size: 16px;
     cursor: pointer;
   }
+
+  .error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 8px;
+}
