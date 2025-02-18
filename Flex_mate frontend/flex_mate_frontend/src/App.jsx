@@ -8,13 +8,23 @@ import Portfolio from './Portfolio.jsx'
 import Resume from './Resume.jsx'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
+import Login from './Login.jsx'
+import SignIn from './SignIn.jsx'
 
 
 function App() {
   const router = createBrowserRouter([
     {
-      path: "/",
+      path: "/explore",
       element: <><Navbar /><Explore /></>
+    },
+    {
+      path:"/",
+      element: <Login/>
+    },
+    {
+      path: "SignIn",
+      element: <SignIn/>
     },
     {
       path: "hirefreelancers",

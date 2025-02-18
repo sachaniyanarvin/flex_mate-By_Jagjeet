@@ -7,7 +7,7 @@ const App = () => {
   return (
     <div>
       <nav className='nav'>
-        <NavLink className={(e) => { return e.isActive ? "blue" : "" }} id="text" to="/">Explore</NavLink>
+        <NavLink className={(e) => { return e.isActive ? "blue" : "" }} id="text" to="/explore">Explore</NavLink>
         <NavLink className={(e) => { return e.isActive ? "blue" : "" }} id="text" to="/hirefreelancers">Hire Freelancers</NavLink>
         <NavLink className={(e) => { return e.isActive ? "blue" : "" }} id="text" to="/workupdates">Work Updates</NavLink>
         <NavLink className={(e) => { return e.isActive ? "blue" : "" }} id="text" to="/yourworks">Your Works</NavLink>

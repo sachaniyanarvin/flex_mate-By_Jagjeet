@@ -1,0 +1,90 @@
+.form-group-1 label {
+    font-family: 'Poppins';
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-top: 30px;
+    margin-left: 23px;
+  }
+  
+  .form-group-1 input {
+    margin-top: 15px;
+    margin-left: 20px;
+    font-family: 'Poppins';
+    width: 85%;
+    padding: 10px;
+    font-size: 14px;
+    background: #e0e3e7;
+    color: #6c757d;
+    border: none;
+    border-radius: 6px;
+    outline: none;
+  }
+
+  .submit-btn-1 {
+    font-family: 'Poppins';
+    width: 50%;
+    justify-self: center;
+    padding: 7px;
+    border: none;
+    border-radius: 5px;
+    background: linear-gradient(to right, #4a90e2, #007bff);
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 110px;
+    margin-top: 40px;
+  }
+
+  .already-1{
+    font-family: 'Poppins';
+    font-size: 14px;
+    color: #6c757d;
+    margin-top: 30px;
+    margin-left: 25px;
+  }
+
+  .signin-options{
+    margin-top: 40px;
+  }
+
+  .or-l-1{
+    background-color: grey;
+    height: 1px;
+    width: 170px;
+    margin-top: 40px;
+    margin-left: 20px;
+  }
+
+  .or-1{
+    font-family: 'Poppins';
+    margin-left: 210px;
+    margin-top: -11px;
+  }
+
+  .or-r-1{
+    background-color: grey;
+    height: 1px;
+    width: 170px;
+    margin-top: -13px;
+    margin-left: 250px;
+  }
+
+  .submit-btn-1:hover {
+    opacity: 0.9;
+  }
+
+  .signup{
+    width:70px;
+    height: 20px;
+    font-family: 'Poppins';
+    font-size: 15px;
+    margin-left: 200px;
+    margin-top: -21px;
+    transition: transform 0.3s ease-out;
+  }
+
+  .signup:hover{
+    font-size: 16px;
+    cursor: pointer;
+  }
