@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { auth, googleProvider, githubProvider } from "./firebase"; // Import providers
-import { createUserWithEmailAndPassword, updateProfile, signInWithPopup } from "firebase/auth";
+import { auth, googleProvider, githubProvider } from "./firebase";
+import {
+    createUserWithEmailAndPassword,
+    updateProfile,
+    sendEmailVerification,
+    signInWithPopup
+} from "firebase/auth";
 import "./Login.css";
 import parachute from "./assets/parachute.png";
 
@@ -10,9 +15,14 @@ const Login = () => {
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [ showPassword, setShowPassword ] = useState("");
+    const [error, setError] = useState("");
+    const [message, setMessage] = useState("");
 
     const handleSignup = async (e) => {
         e.preventDefault();
+        setError("");
+        setMessage("");
         try {
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
             const user = userCredential.user;
@@ -20,10 +30,12 @@ const Login = () => {
             // Store full name in Firebase Auth
             await updateProfile(user, { displayName: fullName });
 
-            alert(`Account created successfully! Welcome, ${fullName}`);
-            navigate("/explore"); // Redirect after signup
+            // Send email verification
+            await sendEmailVerification(user);
+
+            setMessage("Verification email sent! Please check your inbox.");
         } catch (error) {
-            alert(error.message);
+            setError(error.message);
         }
     };
 
@@ -31,10 +43,9 @@ const Login = () => {
     const handleGoogleLogin = async () => {
         try {
             const result = await signInWithPopup(auth, googleProvider);
-            alert(`Welcome, ${result.user.displayName}!`);
             navigate("/explore"); // Redirect after login
         } catch (error) {
-            alert(error.message);
+            setError(error.message);
         }
     };
 
@@ -42,10 +53,9 @@ const Login = () => {
     const handleGithubLogin = async () => {
         try {
             const result = await signInWithPopup(auth, githubProvider);
-            alert(`Welcome, ${result.user.displayName}!`);
             navigate("/explore"); // Redirect after login
         } catch (error) {
-            alert(error.message);
+            setError(error.message);
         }
     };
 
@@ -56,6 +66,11 @@ const Login = () => {
                 <div className="form">
                     <div className="welcome">Welcome To FlexMate</div>
                     <div className="create">Create Your Free Account</div>
+
+                    {/* Show error messages */}
+                    {error && <p className="error">{error}</p>}
+                    {message && <p className="success">{message}</p>}
+
                     <form onSubmit={handleSignup}>
                         <div className="form-group">
                             <label>Full Name</label>
@@ -81,19 +96,28 @@ const Login = () => {
 
                         <div className="form-group">
                             <label>Password</label>
-                            <input
-                                type="password"
-                                placeholder="Enter your Password here"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            />
+                            <div className="password-wrapper">
+                                <input
+                                    type={showPassword ? "text" : "password"} // Toggle input type
+                                    placeholder="Enter your Password here"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    required
+                                />
+                                <button
+                                    type="button"
+                                    className="show-password-btn"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                >
+                                    {showPassword ? "Hide" : "Show"} {/* Toggle text */}
+                                </button>
+                            </div>
                         </div>
-
                         <button type="submit" className="submit-btn">
                             Create Account
                         </button>
                     </form>
+
                     <div className="already">Already have an account?</div>
                     <div className="signin" onClick={() => navigate("/signin")}>
                         Sign In
@@ -104,11 +128,11 @@ const Login = () => {
                     <div className="signin-options">
                         <div className="google" onClick={handleGoogleLogin}>
                             <img src={'https://cdn-icons-png.flaticon.com/128/300/300221.png'} alt="" id='google' />
-                            <div className="google-text">Sign In with Google</div>
+                            <div className="google-text">Sign Up with Google</div>
                         </div>
                         <div className="github" onClick={handleGithubLogin}>
                             <img src={'https://cdn-icons-png.flaticon.com/128/2111/2111432.png'} alt="" id='github' />
-                            <div className="github-text">Sign In with GitHub</div>
+                            <div className="github-text">Sign Up with GitHub</div>
                         </div>
                     </div>
                 </div>

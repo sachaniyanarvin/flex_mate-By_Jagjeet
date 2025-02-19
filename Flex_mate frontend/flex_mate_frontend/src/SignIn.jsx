@@ -14,6 +14,7 @@ const SignIn = () => {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [showPassword, setShowPassword] = useState(false); // State for password visibility
     const [error, setError] = useState("");
 
     // Google & GitHub Providers
@@ -80,12 +81,21 @@ const SignIn = () => {
 
                         <div className="form-group-1">
                             <label>Password</label>
-                            <input
-                                type="password"
-                                placeholder="Enter your Password here"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
+                            <div className="password-wrapper">
+                                <input
+                                    type={showPassword ? "text" : "password"} // Toggle input type
+                                    placeholder="Enter your Password here"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                />
+                                <button
+                                    type="button"
+                                    className="show-password-btn-1"
+                                    onClick={() => setShowPassword(!showPassword)}
+                                >
+                                    {showPassword ? "Hide" : "Show"}
+                                </button>
+                            </div>
                         </div>
 
                         {error && <p className="error-message">{error}</p>} {/* Error message */}

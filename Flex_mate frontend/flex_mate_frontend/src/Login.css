@@ -141,7 +141,7 @@
     background-color: grey;
     height: 1px;
     width: 170px;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-left: 20px;
   }
 
@@ -171,8 +171,8 @@
     width: 180px;
     border: 1px solid black;
     border-radius: 10px;
-    margin-top: 15px;
-    margin-left: 25px;
+    margin-top: -15px;
+    margin-left: 15px;
   }
 
   .google:hover{
@@ -205,7 +205,7 @@
     border: 1px solid black;
     border-radius: 10px;
     margin-top: -43px;
-    margin-left: 220px;
+    margin-left: 210px;
   }
 
   #google{
@@ -219,3 +219,21 @@
     margin-left: 10px;
     margin-top: 4px;
   }
+
+  .password-wrapper {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.show-password-btn {
+  font-family: 'Poppins';
+    position: absolute;
+    margin-left: 360px;
+    margin-top: 13px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    color: #4892E4;
+}

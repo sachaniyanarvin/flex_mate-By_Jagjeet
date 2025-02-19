@@ -95,3 +95,21 @@
     margin-top: 8px;
     margin-left: 20px;
 }
+
+.password-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.show-password-btn-1 {
+font-family: 'Poppins';
+  position: absolute;
+  margin-left: 360px;
+  margin-top: 14px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #4892E4;
+}
