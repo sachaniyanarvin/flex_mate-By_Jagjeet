@@ -203,7 +203,6 @@
 }
 
 .portfolio-container-2{
-    border: 2px solid black;
     height: 650px;
 }
 
@@ -244,5 +243,67 @@
 }
 
 .thick-line{
-    
+    width: 350px;
+    border-radius: 2px;
+    height: 7px;
+    background-color: #3b82f6;
+    margin-top: 100px;
+    margin-left: 100px;
+}
+
+.thin-line{
+    width: 750px;
+    height: 2px;
+    background-color: #3b82f6;
+    margin-left: 450px;
+    margin-top: -4px;
+}
+
+.numbers{
+    display: grid;
+    grid-template-columns: repeat(3,400px);
+    margin-left: 100px;
+    margin-top: 20px;
+}
+.first-number,.second-number,.third-number{
+    font-family: 'Outfit', sans-serif;
+    color: black;
+    font-weight: 700;
+    background-color: #3b82f6;
+    width: 25px;
+    text-align: center;
+    font-size: 19px;
+    color: white;
+    border-radius: 7px;
+}
+
+.skills-txt{
+    display: grid;
+    grid-template-columns: repeat(3,400px);
+    margin-left: 100px;
+    margin-top: 15px;
+}
+
+.first-text{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 500;
+}
+
+.skills-text-2{
+    display: grid;
+    grid-template-columns: repeat(3,400px);
+    margin-left: 100px;
+}
+
+.second-text{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    margin-top: 20px;
+    font-size: 14px;
+    width: 300px;
+}
+
+.portfolio-container-3{
+    height: 650px;
+    width: 1483px;
+    background-color: #4791E5;
 }

@@ -37,6 +37,33 @@ export default function Portfolio() {
         <div className="uponskillstext">With over a decade of experience in digital marketing and career development, Neel Patel Sir is a seasoned professional dedicated to helping individuals achieve their career goals.</div>
         <div className="learn">Learn more</div>
         <div className="thick-line"></div>
+        <div className="thin-line"></div>
+        <div className="numbers">
+          <div className="first-number">1</div>
+          <div className="second-number">2</div>
+          <div className="third-number">3</div>
+        </div>
+        <div className="skills-txt">
+          <div className="first-text">UI/UX Designing Ever</div>
+          <div className="first-text">HTML,CSS & JAVASCRIPT</div>
+          <div className="first-text">My LinkedIn Account</div>
+        </div>
+        <div className="skills-text-2">
+          <div className="second-text">I specialize in user-centered design, creating intuitive interfaces that enhance user experiences.</div>
+          <div className="second-text">I am proficient in HTML, CSS, & JavaScript, building responsive and interactive web applications.</div>
+          <div className="second-text">I have an active LinkedIn account for networking and showcasing my skills and projects.</div>
+        </div>
+      </div>
+      <div className="portfolio-container-3">
+      <div className="video-wrapper">
+      <video
+        src="https://res.cloudinary.com/dk8asmefs/video/upload/v1740137116/vcdef8nnjiee1zyxosni.mp4"
+        controls
+        style={{ width: '1000px', marginLeft: '190px', marginTop:"100px", borderRadius: "10px" }}
+      >
+        Your browser does not support the video tag.
+      </video>
+    </div>
       </div>
     </div>
   );
