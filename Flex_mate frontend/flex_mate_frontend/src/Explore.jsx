@@ -49,10 +49,10 @@ const App = () => {
       <div className="line"></div>
       <div className="below">
         <img src={heart} alt="" className="heart" />
-        <NavLink className={(e) => { return e.isActive ? "blue" : "" }} id="t" to="/">For you</NavLink>
+        <NavLink className={(e) => { return e.isActive ? "blue" : "" }} id="t" to="/explore">For you</NavLink>
         <div className="line2"></div>
         <img src={following} alt="" className="following" />
-        <NavLink className={(e) => { return e.isActive ? "blue" : "" }} id="t" to="/">Following</NavLink>
+        <NavLink className={(e) => { return e.isActive ? "blue" : "" }} id="t" to="/explore">Following</NavLink>
       </div>
       <div className="line1"></div>
       <div className="container">

@@ -220,3 +220,11 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 600;
 }
+
+.uponskillstext{
+    font-family: 'Outfit', sans-serif;
+    color: #5D5D5D;
+    margin-left: 500px;
+    margin-top: 20px;
+    width: 600px;
+}
