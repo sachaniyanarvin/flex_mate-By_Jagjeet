@@ -35,6 +35,8 @@ export default function Portfolio() {
         <img src={skillsphoto} alt="" className="neel-sir-and-me" />
         <div className="skillstext">INCREASE YOUR SKILLS & IMPACT</div>
         <div className="uponskillstext">With over a decade of experience in digital marketing and career development, Neel Patel Sir is a seasoned professional dedicated to helping individuals achieve their career goals.</div>
+        <div className="learn">Learn more</div>
+        <div className="thick-line"></div>
       </div>
     </div>
   );

@@ -228,3 +228,21 @@
     margin-top: 20px;
     width: 600px;
 }
+
+.learn{
+    background-color: #4482C6;
+    width: 120px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    margin-left: 500px;
+    margin-top: 50px;
+    font-family: 'Lato', sans-serif;
+    height: 30px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.thick-line{
+    
+}
