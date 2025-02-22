@@ -55,15 +55,24 @@ export default function Portfolio() {
         </div>
       </div>
       <div className="portfolio-container-3">
-      <div className="video-wrapper">
-      <video
-        src="https://res.cloudinary.com/dk8asmefs/video/upload/v1740137116/vcdef8nnjiee1zyxosni.mp4"
-        controls
-        style={{ width: '1000px', marginLeft: '190px', marginTop:"100px", borderRadius: "10px" }}
-      >
-        Your browser does not support the video tag.
-      </video>
-    </div>
+        <div className="upper-video">SEE MY LATEST PROJECT</div>
+        <div className="upper-video-2">In this video, Jagjeet Dangar shares a video of Coca-cola Famsa Clone.</div>
+        <div className="video-wrapper">
+          <video
+            src="https://res.cloudinary.com/dk8asmefs/video/upload/v1740137116/vcdef8nnjiee1zyxosni.mp4"
+            controls
+            style={{ width: '1000px', marginLeft: '190px', marginTop: "30px", borderRadius: "10px" }}
+          >
+            Your browser does not support the video tag.
+          </video>
+        </div>
+        <div className="learn" style={{ backgroundColor: "black", marginLeft: "650px" }}>View More</div>
+      </div>
+      <div className="portfolio-container-4">
+        <img src={'https://res.cloudinary.com/dk8asmefs/image/upload/v1740198516/hhxcwwhvagqvo0elljlw.jpg'} className="burgman" alt="" />
+        <div className="last-text">GETTING TO KNOW ME</div>
+        <div className="last-text-2">From updating work samples to optimizing for mobile devices, Jagjeet will provide you with the knowledge and skills you need to stand out in today's competitive job market.</div>
+        <div className="learn" style={{marginLeft:"100px"}}>learn more</div>
       </div>
     </div>
   );

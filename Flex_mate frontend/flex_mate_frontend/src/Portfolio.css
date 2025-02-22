@@ -307,3 +307,45 @@
     width: 1483px;
     background-color: #4791E5;
 }
+
+.upper-video{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 45px;
+    font-weight: 600;
+    margin-left: 190px;
+}
+
+.upper-video-2{
+    font-family: 'Outfit', sans-serif;
+    margin-left: 800px;
+    margin-top: -45px;
+    width: 300px;
+    color: #C7D5D3;
+}
+
+.portfolio-container-4{
+    height: 500px;
+}
+
+.burgman{
+    width: 400px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-left: 950px;
+    margin-top: 100px;
+}
+
+.last-text{
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 45px; 
+    margin-top: -230px;
+    margin-left: 100px;
+}
+
+.last-text-2{
+    font-family: 'Outfit', sans-serif;
+    margin-left: 100px;
+    width: 700px;
+    margin-top: 10px;
+}
