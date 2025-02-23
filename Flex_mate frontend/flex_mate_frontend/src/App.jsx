@@ -11,6 +11,7 @@ import './index.css';
 import Login from './Login.jsx';
 import SignIn from './SignIn.jsx';
 import ProtectedRoute from './ProtectedRoute.js'; // Import ProtectedRoute
+import Position from './Position.jsx';
 
 const router = createBrowserRouter([
     { path: "/", element: <Login /> },
@@ -23,6 +24,14 @@ const router = createBrowserRouter([
             <ProtectedRoute>
                 <Navbar />
                 <Explore />
+            </ProtectedRoute>
+        ),
+    },
+    {
+        path: "/position",
+        element: (
+            <ProtectedRoute>
+                <Position />
             </ProtectedRoute>
         ),
     },

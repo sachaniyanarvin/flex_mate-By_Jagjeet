@@ -27,7 +27,7 @@ const SignIn = () => {
         setError(""); 
         try {
             await signInWithEmailAndPassword(auth, email, password);
-            navigate("/explore"); 
+            navigate("/position"); 
         } catch (error) {
             if (error.code === "auth/invalid-credential") {
                 setError("Email or password is incorrect.");
@@ -45,7 +45,7 @@ const SignIn = () => {
     const handleGoogleSignIn = async () => {
         try {
             await signInWithPopup(auth, googleProvider);
-            navigate("/explore");
+            navigate("/position");
         } catch (error) {
             setError("Google Sign-In failed. Try again.");
         }
@@ -55,7 +55,7 @@ const SignIn = () => {
     const handleGithubSignIn = async () => {
         try {
             await signInWithPopup(auth, githubProvider);
-            navigate("/explore");
+            navigate("/position");
         } catch (error) {
             setError("GitHub Sign-In failed. Try again.");
         }
