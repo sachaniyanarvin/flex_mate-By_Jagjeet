@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import './portfolio.css';
 import customers from './assets/customers.png';
-import skillsphoto from './assets/groupphoto2.png';
 
 export default function Portfolio() {
   const [data, setData] = useState([]);
@@ -31,79 +30,55 @@ export default function Portfolio() {
           <h3 className="count-2">Happy Customers</h3>
         </div>
       ))}
-      <div className="portfolio-container-2">
-        <img src={skillsphoto} alt="" className="neel-sir-and-me" />
-        <div className="skillstext">INCREASE YOUR SKILLS & IMPACT</div>
-        <div className="uponskillstext">With over a decade of experience in digital marketing and career development, Neel Patel Sir is a seasoned professional dedicated to helping individuals achieve their career goals.</div>
-        <div className="learn">Learn more</div>
-        <div className="thick-line"></div>
-        <div className="thin-line"></div>
-        <div className="numbers">
-          <div className="first-number">1</div>
-          <div className="second-number">2</div>
-          <div className="third-number">3</div>
+      {data.map((user) => (
+        <div className="portfolio-container-2" key={user._id + "skills"}>
+          <img src={user.skillsPhoto} alt="" className="neel-sir-and-me" />
+          <div className="skillstext">{user.SkillsHeader}</div>
+          <div className="uponskillstext">{user.SkillsHeaderDescription}</div>
+          <div className="learn">Learn more</div>
+          <div className="thick-line"></div>
+          <div className="thin-line"></div>
+          <div className="numbers">
+            {[1, 2, 3].map((num) => (
+              <div key={num} className={`number-${num}`}>{num}</div>
+            ))}
+          </div>
+          <div className="skills-txt">
+            {[user["1stskill"], user["2ndskill"], user["3rdskill"]].map((skill, index) => (
+              <div key={index} className="first-text">{skill[0]}</div>
+            ))}
+          </div>
+          <div className="skills-text-2">
+            {[user["1stskill"], user["2ndskill"], user["3rdskill"]].map((skill, index) => (
+              <div key={index} className="second-text">{skill[1]}</div>
+            ))}
+          </div>
         </div>
-        <div className="skills-txt">
-          <div className="first-text">UI/UX Designing Ever</div>
-          <div className="first-text">HTML,CSS & JAVASCRIPT</div>
-          <div className="first-text">My LinkedIn Account</div>
+      ))}
+      {data.map((user) => (
+        <div className="portfolio-container-3" key={user._id + "video"}>
+          <div className="upper-video">SEE MY LATEST PROJECT</div>
+          <div className="upper-video-2">{user.YourLatestProjectLinkDescription}</div>
+          <div className="video-wrapper">
+            <video
+              src="https://res.cloudinary.com/dk8asmefs/video/upload/v1740137116/vcdef8nnjiee1zyxosni.mp4"
+              controls
+              style={{ width: '1000px', marginLeft: '190px', marginTop: "30px", borderRadius: "10px" }}
+            >
+              Your browser does not support the video tag.
+            </video>
+          </div>
+          <div className="learn" style={{ backgroundColor: "black", marginLeft: "650px" }}>View More</div>
         </div>
-        <div className="skills-text-2">
-          <div className="second-text">I specialize in user-centered design, creating intuitive interfaces that enhance user experiences.</div>
-          <div className="second-text">I am proficient in HTML, CSS, & JavaScript, building responsive and interactive web applications.</div>
-          <div className="second-text">I have an active LinkedIn account for networking and showcasing my skills and projects.</div>
+      ))}
+      {data.map((user) => (
+        <div className="portfolio-container-4" key={user._id + "about"}>
+          <img src="https://res.cloudinary.com/dk8asmefs/image/upload/v1740198516/hhxcwwhvagqvo0elljlw.jpg" className="burgman" alt="" />
+          <div className="last-text">GETTING TO KNOW ME</div>
+          <div className="last-text-2">{user.AboutYou}</div>
+          <div className="learn" style={{marginLeft:"100px"}}>learn more</div>
         </div>
-      </div>
-      <div className="portfolio-container-3">
-        <div className="upper-video">SEE MY LATEST PROJECT</div>
-        <div className="upper-video-2">In this video, Jagjeet Dangar shares a video of Coca-cola Famsa Clone.</div>
-        <div className="video-wrapper">
-          <video
-            src="https://res.cloudinary.com/dk8asmefs/video/upload/v1740137116/vcdef8nnjiee1zyxosni.mp4"
-            controls
-            style={{ width: '1000px', marginLeft: '190px', marginTop: "30px", borderRadius: "10px" }}
-          >
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div className="learn" style={{ backgroundColor: "black", marginLeft: "650px" }}>View More</div>
-      </div>
-      <div className="portfolio-container-4">
-        <img src={'https://res.cloudinary.com/dk8asmefs/image/upload/v1740198516/hhxcwwhvagqvo0elljlw.jpg'} className="burgman" alt="" />
-        <div className="last-text">GETTING TO KNOW ME</div>
-        <div className="last-text-2">From updating work samples to optimizing for mobile devices, Jagjeet will provide you with the knowledge and skills you need to stand out in today's competitive job market.</div>
-        <div className="learn" style={{marginLeft:"100px"}}>learn more</div>
-      </div>
+      ))}
     </div>
   );
 }
-
-
-
-// <div className="portfolio-container">
-//   <header className="hero-section">
-//     <h1>{data.Header}</h1>
-//     <p>{data.WorkDescription}</p>
-//     <img src={data.YourimageLink} alt="Profile" className="profile-image" />
-//   </header>
-
-//   <section className="skills-section">
-//     <h2>{data.SkillsHeader}</h2>
-//     <p>{data.SkillsHeaderDescription}</p>
-//     <div className="skills">
-//       {[data["1stskill"], data["2ndskill"], data["3rdskill"]].map((skill, index) => (
-//         <div key={index} className="skill-card">
-//           <h3>{skill[0]}</h3>
-//           <p>{skill[1]}</p>
-//         </div>
-//       ))}
-//     </div>
-//   </section>
-
-//   <section className="project-section">
-//     <h2>See My Latest Project</h2>
-//     <a href={data.YourLatestProjectLink} target="_blank" rel="noopener noreferrer">
-//       <p>{data.YourLatestProjectLinkDescription}</p>
-//     </a>
-//   </section>
-// </div>
