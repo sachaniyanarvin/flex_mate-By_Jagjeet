@@ -69,5 +69,53 @@
     width: 600px;
     background-color: #4892E4;
     margin-left: 40px;
+    margin-top: 15px;
+}
+
+.straight-line{
+    background-color: #4892E4;
+    height: 820px;
+    width: 4px;
+    margin-left: 700px;
+    margin-top: -820px;
+}
+
+.Educational-History{
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 25px;
+    margin-left: 750px;
+    margin-top: -770px;
+}
+
+.blue-line-4{
+    height: 2px;
+    width: 600px;
+    background-color: #4892E4;
+    margin-left: 750px;
+    margin-top: 15px;
+}
+
+.Educational-History-text-1{
+    margin-left: 750px;
+    font-weight: 600;
+    font-size: 20px;
+    margin-top: 10px;
+    font-family: 'Inria Sans', sans-serif;
+}
+
+.Edcuational-History-text-1-sub{
+    margin-left: 750px;
+    margin-top: 10px;
+}
+
+.known-frameworks{
+    font-family: 'Inria Sans', sans-serif;
+    font-size: 25px;
+    margin-left: 750px;
+    margin-top: 20px;
+}
+
+.Edcuational-History-text-1-sub-2{
+    margin-left: 900px;
     margin-top: 10px;
 }

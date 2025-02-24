@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./Resume.css"; // Import the CSS file
-import phone from './assets/phone.png';
+import "./Resume.css";
 
 const Resume = () => {
   const [data, setData] = useState(null);
@@ -8,7 +7,7 @@ const Resume = () => {
   useEffect(() => {
     fetch("http://localhost:3000/resume")
       .then((response) => response.json())
-      .then((json) => setData(json[0])) // Assuming it's an array with one object
+      .then((json) => setData(json[0]))
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
@@ -17,26 +16,39 @@ const Resume = () => {
   return (
     <div>
       <div className="resume-navbar"></div>
-      <img src="https://rainbow-kulfi-db2a6d.netlify.app/assets/1.jpg" alt="" className="resume-pfp" />
-      <div className="f-name">JAGJEET</div>
-      <div className="l-name">DANGAR</div>
+      <img src={data.YourImageLink} alt="Profile" className="resume-pfp" />
+      <div className="f-name">{data.YourName.split(" ")[0]}</div>
+      <div className="l-name">{data.YourName.split(" ")[1]}</div>
       <div className="personal-profile"><i>Personal Profile</i></div>
       <div className="blue-line"></div>
-      <div className="personal-profile-text">Creative and enthusiastic Frontend Developer with a solid
-        background in crafting visually appealing and user-friendly
-        web applications. Proficient in React.js and adept at
-        leveraging modern frontend technologies to build scalable,
-        responsive, and interactive interfaces. Experienced in turning
-        design prototypes into pixel-perfect implementations,
-        ensuring seamless functionality and exceptional user
-        experiences. Passionate about clean code, performance
-        optimization, and solving challenging problems to deliver
-        innovative solutions. Committed to collaborating effectively
-        and meeting project goals within deadlines.</div>
-        <div className="blue-line-2"></div>
-        <div className="contact-details"><i>Contact Details</i></div>
-        <div className="blue-line-3"></div>
-        <img src={{phone}} alt="" className="phone" />
+      <div className="personal-profile-text">{data.PersonalProfile}</div>
+      
+      <div className="contact-details"><i>Contact Details</i></div>
+      <div className="blue-line-3"></div>
+      <div className="personal-profile-text">{data.PhoneNumber}</div>
+      <div className="personal-profile-text">{data.Email}</div>
+      <div className="personal-profile-text">{data.Address}</div>
+      
+      <div className="contact-details">Skills and Experience</div>
+      <div className="blue-line-3"></div>
+      <div className="personal-profile-text">
+        {data.SkillsAndExperience.split("(").map((skill, index) => (
+          skill.trim() && <div key={index}>{skill.replace(")", "").trim()}</div>
+        ))}
+      </div>
+      
+      <div className="straight-line"></div>
+      <div className="Educational-History"><i>Educational History</i></div>
+      <div className="blue-line-4"></div>
+      <div className="Educational-History-text-1">{data.Current}</div>
+      <div className="Educational-History-text-1">{data.HigherSecondaryCertification}</div>
+      <div className="Educational-History-text-1">{data.SecondaryCertification}</div>
+      
+      <div className="known-frameworks">Projects</div>
+      <div className="blue-line-4"></div>
+      {data.Projects.map((project, index) => (
+        <div className="Edcuational-History-text-1-sub" key={index}>{project}</div>
+      ))}
     </div>
   );
 };
