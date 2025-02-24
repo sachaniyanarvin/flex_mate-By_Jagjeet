@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./Resume.css"; // Import the CSS file
+import phone from './assets/phone.png';
 
 const Resume = () => {
   const [data, setData] = useState(null);
@@ -14,46 +15,28 @@ const Resume = () => {
   if (!data) return <p>Loading...</p>;
 
   return (
-    <div className="resume-container">
-      {/* Profile Section */}
-      <div className="profile">
-        <img src={data.YourImageLink} alt={data.YourName} className="profile-img" />
-        <h1 className="profile-name">{data.YourName}</h1>
-        <h2 className="profile-position">{data.YourPosition}</h2>
-        <p className="profile-description">{data.PersonalProfile}</p>
-      </div>
-
-      {/* Contact Info */}
-      <div className="card">
-        <h3>Contact</h3>
-        <p><strong>Phone:</strong> {data.PhoneNumber}</p>
-        <p><strong>Email:</strong> {data.Email}</p>
-        <p><strong>Location:</strong> {data.Address}</p>
-      </div>
-
-      {/* Skills & Experience */}
-      <div className="card">
-        <h3>Skills & Experience</h3>
-        <p>{data.SkillsAndExperience.replace(/\(\d+\)/g, "").split("( )").join("\n")}</p>
-      </div>
-
-      {/* Education */}
-      <div className="card">
-        <h3>Education</h3>
-        <p><strong>Current:</strong> {data.Current}</p>
-        <p><strong>Higher Secondary:</strong> {data.HigherSecondaryCertification}</p>
-        <p><strong>Secondary:</strong> {data.SecondaryCertification}</p>
-      </div>
-
-      {/* Projects */}
-      <div className="card">
-        <h3>Projects</h3>
-        <ul>
-          {data.Projects.map((project, index) => (
-            <li key={index}>{project}</li>
-          ))}
-        </ul>
-      </div>
+    <div>
+      <div className="resume-navbar"></div>
+      <img src="https://rainbow-kulfi-db2a6d.netlify.app/assets/1.jpg" alt="" className="resume-pfp" />
+      <div className="f-name">JAGJEET</div>
+      <div className="l-name">DANGAR</div>
+      <div className="personal-profile"><i>Personal Profile</i></div>
+      <div className="blue-line"></div>
+      <div className="personal-profile-text">Creative and enthusiastic Frontend Developer with a solid
+        background in crafting visually appealing and user-friendly
+        web applications. Proficient in React.js and adept at
+        leveraging modern frontend technologies to build scalable,
+        responsive, and interactive interfaces. Experienced in turning
+        design prototypes into pixel-perfect implementations,
+        ensuring seamless functionality and exceptional user
+        experiences. Passionate about clean code, performance
+        optimization, and solving challenging problems to deliver
+        innovative solutions. Committed to collaborating effectively
+        and meeting project goals within deadlines.</div>
+        <div className="blue-line-2"></div>
+        <div className="contact-details"><i>Contact Details</i></div>
+        <div className="blue-line-3"></div>
+        <img src={{phone}} alt="" className="phone" />
     </div>
   );
 };

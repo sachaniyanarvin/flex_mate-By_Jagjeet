@@ -29,7 +29,7 @@
   
   /* INDIVIDUAL CARD */
   .card {
-    width: 280px;
+    width: 300px;
     background-color: #ffffff;
     border-radius: 15px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -55,4 +55,15 @@
     line-height: 1.4;
   }
   
+.vk{
+  margin-left: 15px;
+}
 
+.rs{
+  margin-left: 15px;
+}
+
+.bag-and-freelancer{
+  margin-top: 10px;
+  margin-left: 15px;
+}

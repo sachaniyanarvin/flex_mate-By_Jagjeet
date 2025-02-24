@@ -12,13 +12,13 @@ const WelcomePage = () => {
       <div className="cards-container">
         <div className="card" onClick={() => navigate("/explore")}>
           <img src={bag} alt="" className="bag-and-freelancer" />
-          <h2>Hirer</h2>
-          <p>Hirer simplifies recruitment by connecting companies with top talent efficiently.</p>
+          <h2 className='vk'>Hirer</h2>
+          <p className='rs'>Hirer simplifies recruitment by connecting companies with top talent efficiently.</p>
         </div>
         <div className="card">
           <img src={freelancer} alt="" className="bag-and-freelancer" />
-          <h2>Freelancer</h2>
-          <p>Freelancer connects professionals with clients for seamless work opportunities.</p>
+          <h2 className='vk'>Freelancer</h2>
+          <p className='rs'>Freelancer connects professionals with clients for seamless work opportunities.</p>
         </div>
       </div>
     </div>
