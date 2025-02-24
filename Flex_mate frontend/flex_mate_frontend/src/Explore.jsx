@@ -1,30 +1,30 @@
 import React, { useEffect, useState } from "react";
+import { NavLink, useNavigate } from "react-router-dom";
 import './Explore.css';
 import like from './assets/like.png';
 import heart from './assets/heart.png';
 import following from './assets/following.png';
-import { NavLink } from "react-router-dom";
 import eye from "./assets/eye.png";
+import Modal from "./Modal"; // Import the modal component
 
 const App = () => {
   const [projects, setProjects] = useState([]);
-  // Using an object where each key is a project id with its like count and liked status
   const [likes, setLikes] = useState({});
   const [error, setError] = useState(null);
+  const [selectedProject, setSelectedProject] = useState(null); // State for modal
+  const navigate = useNavigate(); // Hook for navigation
 
   useEffect(() => {
     const fetchProjects = async () => {
       try {
-        const response = await fetch("http://localhost:3000/projects");
+        const response = await fetch("http://localhost:3000/portfolio");
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
         }
         const data = await response.json();
         setProjects(data);
-        // Initialize likes state based on projects
         const initialLikes = {};
         data.forEach((project) => {
-          // Assuming each project has a 'likes' field and an initial liked status (false)
           initialLikes[project._id] = { count: project.likes || 0, liked: false };
         });
         setLikes(initialLikes);
@@ -37,48 +37,53 @@ const App = () => {
     fetchProjects();
   }, []);
 
-  // Handle like click: toggle the liked state and update the count
   const handleLike = async (projectId) => {
-    setLikes((prevLikes) => {
-      const projectLikes = prevLikes[projectId];
-      const newLiked = !projectLikes.liked;
-      const newCount = projectLikes.count + (newLiked ? 1 : -1);
-      return {
-        ...prevLikes,
-        [projectId]: { count: newCount, liked: newLiked },
-      };
-    });
+    const projectLikes = likes[projectId];
+    const newLiked = !projectLikes.liked;
+    const newCount = projectLikes.count + (newLiked ? 1 : -1);
 
-    // Prepare the updated like count based on current state
-    const updatedCount = likes[projectId]?.liked
-      ? likes[projectId].count - 1  // if already liked, we are unliking
-      : likes[projectId].count + 1; // if not liked, we are liking
+    // Optimistically update state
+    setLikes((prevLikes) => ({
+      ...prevLikes,
+      [projectId]: { count: newCount, liked: newLiked },
+    }));
 
     try {
-      const response = await fetch(`http://localhost:3000/projects/${projectId}`, {
+      const response = await fetch(`http://localhost:3000/portfolio/${projectId}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ likes: updatedCount }),
+        body: JSON.stringify({ likes: newCount }),
       });
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-      // Optionally, you can update your state with the response data if needed
-      // const updatedProject = await response.json();
     } catch (err) {
       console.error("Error updating like count:", err);
-      // Optionally, revert the UI state if the backend update fails
-      setLikes((prevLikes) => {
-        const projectLikes = prevLikes[projectId];
-        // revert the toggling changes
-        return {
-          ...prevLikes,
-          [projectId]: { count: projectLikes.count + (projectLikes.liked ? -1 : 1), liked: !projectLikes.liked },
-        };
-      });
+      // Revert to previous state on error
+      setLikes((prevLikes) => ({
+        ...prevLikes,
+        [projectId]: { count: projectLikes.count, liked: projectLikes.liked },
+      }));
       setError(err.message);
     }
   };
+
+  const openModal = (project) => {
+    setSelectedProject(project);
+  };
+
+  const closeModal = () => {
+    setSelectedProject(null);
+  };
+
+  const navigateToPortfolio = (projectId) => {
+    navigate(`/portfolio/${projectId}`); // Navigate to the specific portfolio
+  };
+
+  // Compute sorted projects (most liked first) and take only the first 20
+  const sortedProjects = [...projects]
+    .sort((a, b) => (likes[b._id]?.count || 0) - (likes[a._id]?.count || 0))
+    .slice(0, 20);
 
   return (
     <div className="main">
@@ -94,10 +99,16 @@ const App = () => {
       <div className="container">
         {error ? <p className="error-message">⚠️ {error}</p> : null}
         <div className="projects-list">
-          {projects.length > 0 ? (
-            projects.map((project) => (
+          {sortedProjects.length > 0 ? (
+            sortedProjects.map((project) => (
               <div key={project._id} className="project-card">
-                <img src={project.projectLink} alt="Project" className="project-img" />
+                <img
+                  src={project.projectLink}
+                  alt="Project"
+                  className="project-img"
+                  onClick={() => navigateToPortfolio(project._id)} // Navigate to portfolio on click
+                  style={{ cursor: "pointer" }}
+                />
                 <img
                   src={like}
                   alt="like button"
@@ -116,6 +127,14 @@ const App = () => {
           )}
         </div>
       </div>
+      {selectedProject && (
+        <Modal
+          project={selectedProject}
+          onClose={closeModal}
+          onLike={handleLike}
+          likes={likes[selectedProject._id]}
+        />
+      )}
     </div>
   );
 };

@@ -72,7 +72,7 @@ const router = createBrowserRouter([
         ),
     },
     {
-        path: "/portfolio",
+        path: "/portfolio/:id", // Dynamic route for specific portfolio
         element: (
             <ProtectedRoute>
                 <Navbar />
