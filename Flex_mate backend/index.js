@@ -38,6 +38,31 @@ app.use(express.json());
       }
     });
 
+    app.get('/portfolio/:id', async (req, res) => {
+      try {
+          const projectId = req.params.id;
+  
+          // Validate the projectId
+          if (!ObjectId.isValid(projectId)) {
+              return res.status(400).json({ message: 'Invalid project ID' });
+          }
+  
+          // Convert projectId to ObjectId
+          const objectId = new ObjectId(projectId);
+  
+          // Fetch the project from the database
+          const project = await db.collection("portfolio").findOne({ _id: objectId });
+  
+          if (!project) {
+              return res.status(404).json({ message: 'Project not found' });
+          }
+  
+          res.status(200).json(project);
+      } catch (error) {
+          console.error('Error fetching project:', error);
+          res.status(500).json({ message: 'Internal server error' });
+      }
+  });
     app.patch("/projects/:id", async (req, res) => {
       try {
         const projectId = req.params.id; 
