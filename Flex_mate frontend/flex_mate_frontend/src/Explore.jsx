@@ -6,6 +6,7 @@ import heart from './assets/heart.png';
 import following from './assets/following.png';
 import eye from "./assets/eye.png";
 import Modal from "./Modal"; // Import the modal component
+import search from './assets/search4.png';
 
 const App = () => {
   const [projects, setProjects] = useState([]);

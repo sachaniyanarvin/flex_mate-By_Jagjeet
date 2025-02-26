@@ -11,8 +11,10 @@ import jnr from './assets/jnr.png';
 import location from './assets/location.png';
 import dot from './assets/dot.png';
 import Vector1 from './assets/Vector1.png';
+import { useNavigate } from "react-router-dom";
 
 const Feedback = () => {
+  const navigate = useNavigate();
   const [feedbackData, setFeedbackData] = useState([]);
 
   useEffect(() => {
@@ -22,12 +24,20 @@ const Feedback = () => {
       .catch((error) => console.error("Error fetching feedback:", error));
   }, []);
 
+  const handlenavigation = async () => {
+    try {
+        navigate("/browsecategory"); 
+    } catch (error) {
+        setError(error.message);
+    }
+};
+
   return (
     <div>
       <div className="box">
         <h1 className="title">Hire The World's Best <br /> Freelancers on FlexMate</h1>
         <h1 className="belowtitle">Create a project to get matched with freelancers or start browsing</h1>
-        <div className="browse-cat">
+        <div className="browse-cat" onClick={() => handlenavigation()}>
           Browse Categories
         </div>
         <div className="categories">
@@ -91,7 +101,7 @@ const Feedback = () => {
           </div>
         </div>
         <img src={why} alt="" className="why" />
-        <div className="browse-cat1">
+        <div className="browse-cat1" onClick={() => handlenavigation()}>
           Browse Categories
         </div>
         <div id="line"></div>
