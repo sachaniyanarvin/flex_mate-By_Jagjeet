@@ -7,6 +7,16 @@ const Browsecategory = () => {
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredCategories, setFilteredCategories] = useState([]);
+  const [profiles, setProfiles] = useState([]);
+
+  const categoryMap = {
+    logodesign: "Logo Design",
+    brandingservices: "Branding Services",
+    socialmediadesign: "Social Media Design",
+    websitedesign: "Website Design"
+  };
+  
+  const formatCategory = (key) => categoryMap[key] || key;
 
 
   // Sample category data
@@ -70,6 +80,15 @@ const Browsecategory = () => {
 
   ];
 
+
+  useEffect(() => {
+    fetch("http://localhost:3000/profiles")
+      .then((res) => res.json())
+      .then((data) => setProfiles(data))
+      .catch((err) => console.error("Error fetching data:", err));
+  }, []);
+
+
   useEffect(() => {
     const handleScroll = () => {
       if (sliderRef.current) {
@@ -114,15 +133,15 @@ const Browsecategory = () => {
     <div>
       {/* Search Bar */}
       <input
-          type="text"
-          className="search-bar"
-          placeholder="Search categories..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-        <button className="search-button" onClick={handleSearch}>
-          Search
-        </button>
+        type="text"
+        className="search-bar"
+        placeholder="Search categories..."
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
+      <button className="search-button" onClick={handleSearch}>
+        Search
+      </button>
 
 
       <div className="slider-container">
@@ -160,8 +179,35 @@ const Browsecategory = () => {
         </button>
       </div>
 
+      <div className="profiles-container">
+      {profiles?.map((profile, index) => (
+        <div className="profile-card" key={index}>
+          <img className="profile-photo" src={profile.profilePhoto} alt={profile.name} />
+          <div className="name-section">{profile.name}</div>
+          <img className='location-1' src={'https://cdn-icons-png.flaticon.com/128/14035/14035451.png'} alt="" />
+          <div className="location-2">{profile.location}</div>
+          <div className="skills-category">
+            {profile.categories?.map((categories, categoriesIndex) => (
+              <div className="skills-category-1" key={categoriesIndex}>{formatCategory(categories)}</div>
+            ))}
+          </div>
+          <div className="work-category">Work</div>
+          <div className="images-category-profile-vise">
+            {profile.images?.map((image, imgIndex) => (
+              <img className="image-profile-work" src={image} alt="" key={imgIndex} />
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
     </div>
   );
 };
 
 export default Browsecategory;
+
+
+
+
+
+
