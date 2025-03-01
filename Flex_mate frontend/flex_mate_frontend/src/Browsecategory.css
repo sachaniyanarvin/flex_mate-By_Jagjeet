@@ -184,6 +184,7 @@
 }
 
 .profile-card {
+  cursor: pointer;
   height: 280px;
   width: 700px;
   border: 1px solid #E4E5E8;

@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Browsecategory.css';
+import ProfilePopup from './ProfilePopup'; // Import the new pop-up component
 
 const Browsecategory = () => {
   const sliderRef = useRef(null);
@@ -8,6 +9,7 @@ const Browsecategory = () => {
   const [filteredCategories, setFilteredCategories] = useState([]);
   const [profiles, setProfiles] = useState([]);
   const [searchcategory, setSearchcategory] = useState('');
+  const [selectedProfile, setSelectedProfile] = useState(null);
 
   const categoryMap = {
     logodesign: "Logo Design",
@@ -83,13 +85,11 @@ const Browsecategory = () => {
 
   useEffect(() => {
     if (searchTerm) {
-      // Fetch profiles based on the category
       fetch(`http://localhost:3000/profiles/${searchTerm}`)
         .then((res) => res.json())
         .then((data) => setProfiles(data))
         .catch((err) => console.error("Error fetching data:", err));
     } else {
-      // Fetch all profiles if no category is specified
       fetch(`http://localhost:3000/profiles`)
         .then((res) => res.json())
         .then((data) => setProfiles(data))
@@ -118,14 +118,14 @@ const Browsecategory = () => {
 
   const scrollLeft = () => {
     if (sliderRef.current) {
-      const cardWidth = sliderRef.current.querySelector(".category-card").offsetWidth + 16; // Card width + margin
+      const cardWidth = sliderRef.current.querySelector(".category-card").offsetWidth + 16;
       sliderRef.current.scrollBy({ left: -cardWidth, behavior: "smooth" });
     }
   };
 
   const scrollRight = () => {
     if (sliderRef.current) {
-      const cardWidth = sliderRef.current.querySelector(".category-card").offsetWidth + 16; // Card width + margin
+      const cardWidth = sliderRef.current.querySelector(".category-card").offsetWidth + 16;
       sliderRef.current.scrollBy({ left: cardWidth, behavior: "smooth" });
     }
   };
@@ -148,25 +148,24 @@ const Browsecategory = () => {
   };
 
   const handleCategoryClick = (categoryKey) => {
-    // Update the URL using `window.history.pushState`
     const newUrl = `/profiles/${categoryKey}`;
     window.history.pushState({}, '', newUrl);
-
-    // Update the searchcategory state
     setSearchcategory(categoryKey);
-
-    // Fetch profiles based on the selected category
     fetch(`http://localhost:3000/profiles/${categoryKey}`)
       .then((res) => res.json())
       .then((data) => setProfiles(data))
       .catch((err) => console.error("Error fetching data:", err));
   };
 
+  const onClose = () => {
+    setSelectedProfile(null);
+  };
+
   const categoriesToDisplay = searchTerm ? filteredCategories : categories;
 
   return (
     <div>
-      {/* Search Bar */}
+      {/* Search Bar and Slider */}
       <input
         type="text"
         className="search-bar"
@@ -192,7 +191,7 @@ const Browsecategory = () => {
             <div
               key={category.id}
               className="category-card"
-              onClick={() => handleCategoryClick(category.key)} // Handle category click
+              onClick={() => handleCategoryClick(category.key)}
             >
               <div
                 className="card-content"
@@ -216,16 +215,17 @@ const Browsecategory = () => {
         </button>
       </div>
 
+      {/* Profiles */}
       <div className="profiles-container">
         {profiles?.map((profile, index) => (
-          <div className="profile-card" key={index}>
+          <div className="profile-card" key={index} onClick={() => setSelectedProfile(profile)}>
             <img className="profile-photo" src={profile.profilePhoto} alt={profile.name} />
             <div className="name-section">{profile.name}</div>
             <img className='location-1' src={'https://cdn-icons-png.flaticon.com/128/14035/14035451.png'} alt="" />
             <div className="location-2">{profile.location}</div>
             <div className="skills-category">
-              {profile.categories?.map((categories, categoriesIndex) => (
-                <div className="skills-category-1" key={categoriesIndex}>{formatCategory(categories)}</div>
+              {profile.categories?.map((category, categoryIndex) => (
+                <div className="skills-category-1" key={categoryIndex}>{formatCategory(category)}</div>
               ))}
             </div>
             <div className="work-category">Work</div>
@@ -237,6 +237,11 @@ const Browsecategory = () => {
           </div>
         ))}
       </div>
+
+      {/* Pop-up */}
+      {selectedProfile && (
+        <ProfilePopup profile={selectedProfile} onClose={onClose} />
+      )}
     </div>
   );
 };
