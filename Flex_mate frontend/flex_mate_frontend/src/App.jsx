@@ -12,6 +12,7 @@ import Login from './Login.jsx';
 import SignIn from './SignIn.jsx';
 import ProtectedRoute from './ProtectedRoute.js'; // Import ProtectedRoute
 import Position from './Position.jsx';
+import Browsecategory from './Browsecategory.jsx';
 
 const router = createBrowserRouter([
     { path: "/", element: <Login /> },
@@ -89,6 +90,15 @@ const router = createBrowserRouter([
             </ProtectedRoute>
         ),
     },
+    {
+        path:"/browsecategory",
+        element:(
+            <ProtectedRoute>
+                <Navbar/>
+                <Browsecategory/>
+            </ProtectedRoute>
+        )
+    }
 ]);
 
 function App() {

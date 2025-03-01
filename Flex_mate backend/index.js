@@ -313,8 +313,67 @@ app.use(express.json());
       }
     });
 
+    app.post("/profiles", async (req, res) => {
+      try {
+        const { profilePhoto, name, location, categories, images } = req.body;
+    
+        // Ensure required fields are present
+        if (!name || !location || !categories || !Array.isArray(categories) || categories.length === 0) {
+          return res.status(400).json({ error: "Name, location, and at least one category are required" });
+        }
+    
+        // Insert profile into the database
+        const result = await db.collection("profiles").insertOne({
+          profilePhoto,
+          name,
+          location,
+          categories,
+          images,
+        });
+    
+        res.json(result);
+      } catch (error) {
+        console.error("Error inserting document:", error);
+        res.status(500).json({ error: "Internal Server Error" });
+      }
+    });
+    
+    
+    
+
+    app.get("/profiles", async (req, res) => {
+      try {
+        const userId = req.query.userId; 
+        const filter = userId ? { userId: userId } : {}; 
+        const users = await db.collection("profiles").find(filter).toArray(); 
+        res.json(users); 
+      } catch (error) {
+        console.error(error); 
+        res.status(500).json({ error: "An error occurred while fetching feedback." });
+      }
+    });
+
+    app.get("/profiles/:category?", async (req, res) => {
+      try {
+        const { category } = req.params;
+        const filter = category ? { categories: { $in: [category] } } : {}; 
+    
+        const profiles = await db.collection("profiles").find(filter).toArray();
+        res.json(profiles);
+      } catch (error) {
+        console.error("Error fetching profiles:", error);
+        res.status(500).json({ error: "An error occurred while fetching profiles." });
+      }
+    });
+    
+    
+
     app.listen(port, () => console.log(`Server running on http://localhost:${port}`));
   } catch (err) {
     console.error(err);
   }
 })();
+
+
+
+
